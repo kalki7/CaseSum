@@ -5,7 +5,5 @@ run project.py
 
 open localhost:5000/ 
 
-//currently only the topics are displayed, need to accept topics and summarise
-
 the rest will follow
 
