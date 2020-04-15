@@ -13,10 +13,12 @@ def summaryTime():
         topic = topicExtract(request.form.get("message"))
         html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Topics Available</title></head><body><h1>Topics : </h1>"
         
-        for i in range (len(topic)):
-           html = html + "<h4>" + str(i) + ". " + str(topic[i]) + "<br></h4>"
+        html = html + "<form>"
 
-        html = html + "</body></html>"
+        for i in range (len(topic)):
+           html = html + "<input type=\"checkbox\" id=\"op" + str(i) + "\" name=\"op" + str(i) + "\" value=\"" + str(i) + "\"> " + str(topic[i]) + "<br>" 
+
+        html = html + "</form></body></html>"
 
         return (html)
 
