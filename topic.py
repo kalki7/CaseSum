@@ -18,7 +18,7 @@ def  topicExtract(data):
         temp = para[i].split(".")
         topic.append(temp[0])
 
-    for i in range (len(topic)):
-        print(str(i) + "." + topic[i])
+    # for i in range (len(topic)):
+    #     print(str(i) + "." + topic[i])
 
-    return(topic)
+    return(topic, para)
