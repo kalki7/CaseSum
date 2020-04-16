@@ -2,10 +2,6 @@ import nltk
 import pandas as pd
 import re
 import sys
-from sum import sumTopic
-
-# f = open(sys.argv[1], "r", encoding="UTF-8")
-# data = f.read()
 
 def  topicExtract(data):
     para = re.compile("\n[0-9]+[.][ ]").split(data)

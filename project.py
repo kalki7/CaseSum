@@ -17,7 +17,7 @@ def summaryTime():
     global topic
     if request.method == 'POST':
         topic,para = topicExtract(request.form.get("message"))
-        html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Topics Available</title></head><body><h1>Topics : </h1>"
+        html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Topics Available</title></head><body><h1>Topics : </h1><br>"
         
         html = html + "<form action=\"/summary\" method=\"POST\" name=\"topicsum\">"
 
@@ -42,6 +42,9 @@ def summ():
     length = len(data.split('.'))
     thres = int((length/100)*val2)
     summary = sumTopic(data,thres)
+
+    html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Summary</title></head><body><h1>Your Summary : </h1><br><h4>" + str(summary) + "</h4>"
+    html = html + "</body></html>"
     return(str(summary))
 
 
