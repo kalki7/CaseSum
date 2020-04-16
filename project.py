@@ -41,6 +41,8 @@ def summ():
 
     length = len(data.split('.'))
     thres = int((length/100)*val2)
+    if thres == 0:
+        thres = 1
     summary = sumTopic(data,thres)
 
     html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Summary</title></head><body><h1>Your Summary : </h1><br><h4>" + str(summary) + "</h4>"
