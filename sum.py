@@ -48,7 +48,7 @@ def generate_summary(doc,sents_in_summary):
     summarized_sentences = sorted(sentence_scores.items(),key=lambda x: x[1],reverse=True)[:sents_in_summary]
     
     #sorting according to appearance of sentences in the original text
-    summarized_sentences = sorted(summarized_sentences,key=lambda x: x[1][1])
+    #summarized_sentences = sorted(summarized_sentences,key=lambda x: x[1][1])
     
     final_sentences = [x[0].text.capitalize() for x in summarized_sentences]
     summary = " ".join(final_sentences)

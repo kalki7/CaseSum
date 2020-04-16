@@ -24,7 +24,7 @@ def summaryTime():
         for i in range (len(topic)):
            html = html + "<input type=\"checkbox\" id=\"op" + str(i) + "\" name=\"op" + str(i) + "\" value=\"" + str(i) + "\"> " + str(topic[i]) + "<br>" 
 
-        html = html + "<br><br><button name=\"forwardBtn\" onclick=\"move_forward()\">Submit</button></form></body></html>"
+        html = html + "<br><br> Summary Level <br><input name=\"thres\" id=\"thres\" type=\"range\" min=\"1\" max=\"100\" value=\"50\"><br><br><button name=\"forwardBtn\" onclick=\"move_forward()\">Submit</button></form></body></html>"
 
         return (html)
 
@@ -32,13 +32,17 @@ def summaryTime():
 def summ():
     if request.method == 'POST':
         data = ''
-        for i in range (len(topic)):
+        for i in range (len(topic)-1):
             op = "op" + str(i)
-            if request.form.get(op) == 1:
+            val1 = request.form.get(op)
+            if val1 == str(i):
                 data = data + para[i]
+            val2 = int(request.form.get('thres'))
 
-
-        return(str(data))
+    length = len(data.split('.'))
+    thres = int((length/100)*val2)
+    summary = sumTopic(data,thres)
+    return(str(summary))
 
 
 
