@@ -45,7 +45,7 @@ def summ():
 
     html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Summary</title></head><body><h1>Your Summary : </h1><br><h4>" + str(summary) + "</h4>"
     html = html + "</body></html>"
-    return(str(summary))
+    return(str(html))
 
 
 
