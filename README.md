@@ -1,5 +1,5 @@
 # CaseSum
-An extraction based summarisation tool that accepts a Legal Case Document, and displays it's summary based on the topics chosen by the user  
+An extraction based summarisation tool that accepts a Document, and displays it's summary based on the topics chosen by the user  
 
 run project.py
 
