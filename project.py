@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from topic import topicExtract
-from sum import sumTopic
+from sum import extra
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ topic = []
 
 @app.route('/')
 def indexDisp():
-    return render_template('index.html')
+    return render_template('index.html') 
 
 @app.route('/topics', methods = ['POST', 'GET'])
 def summaryTime():
@@ -43,7 +43,9 @@ def summ():
     thres = int((length/100)*val2)
     if thres == 0:
         thres = 1
-    summary = sumTopic(data,thres)
+
+    #summary = sumTopic(data,thres)
+    summary = extra(data,thres,1)
 
     html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Summary</title></head><body><h1>Your Summary : </h1><br><h4>" + str(summary) + "</h4>"
     html = html + "</body></html>"
