@@ -23,8 +23,28 @@ def summaryTime():
 
         for i in range (len(topic)):
            html = html + "<input type=\"checkbox\" id=\"op" + str(i) + "\" name=\"op" + str(i) + "\" value=\"" + str(i) + "\"> " + str(topic[i]) + "<br>" 
+        
+        html = html + '''<br><br><h1>Choose Summariser : </h1><br><input type=\"radio\" id=\"1\" name=\"sum\" value=\"1\">
+  <label for=\"1\">BOW</label><br>
+  <input type=\"radio\" id=\"2\" name=\"sum\" value=\"2\">
+  <label for=\"2\">LexSum</label><br>
+  <input type=\"radio\" id=\"3\" name=\"sum\" value=\"3\">
+  <label for=\"3\">Luhn</label><br>
+  <input type=\"radio\" id=\"4\" name=\"sum\" value=\"4\">
+  <label for=\"4\">LSA</label><br>
+  <input type=\"radio\" id=\"5\" name=\"sum\" value=\"5\">
+  <label for=\"5\">TextRank</label><br>
+  <input type=\"radio\" id=\"6\" name=\"sum\" value=\"6\">
+  <label for=\"6\">Sumbasic</label><br>
+  <input type=\"radio\" id=\"7\" name=\"sum\" value=\"7\">
+  <label for=\"7\">KLSum</label><br>
+  <input type=\"radio\" id=\"8\" name=\"sum\" value=\"8\">
+  <label for=\"8\">Reduciton</label><br><br>
 
-        html = html + "<br><br> Summary Level <br><input name=\"thres\" id=\"thres\" type=\"range\" min=\"1\" max=\"100\" value=\"50\"><br><br><button name=\"forwardBtn\" onclick=\"move_forward()\">Submit</button></form></body></html>"
+  
+   ''' 
+
+        html = html + "<br><h2> Summary Level </h2><br><input name=\"thres\" id=\"thres\" type=\"range\" min=\"1\" max=\"100\" value=\"50\"><br><br><button name=\"forwardBtn\" onclick=\"move_forward()\">Submit</button></form></body></html>"
 
         return (html)
 
@@ -39,13 +59,14 @@ def summ():
                 data = data + para[i]
             val2 = int(request.form.get('thres'))
 
+    op = request.form.get('sum')
     length = len(data.split('.'))
     thres = int((length/100)*val2)
     if thres == 0:
         thres = 1
 
     #summary = sumTopic(data,thres)
-    summary = extra(data,thres,1)
+    summary = extra(data,thres,int(op))
 
     html = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Summary</title></head><body><h1>Your Summary : </h1><br><h4>" + str(summary) + "</h4>"
     html = html + "</body></html>"
