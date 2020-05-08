@@ -12,6 +12,7 @@ from sumy.summarizers.kl import KLSummarizer
 from sumy.summarizers.reduction import ReductionSummarizer
 
 from bow import bow
+from tfidf import tfidf
 
 
 language = "english"
@@ -35,6 +36,8 @@ def extra(text,n,op):
         return(klsum(parser,n))
     elif op == 8:
         return(reduction(parser,n))
+    elif op ==9:
+        return(tfidf(text,n))
 
 
 def lexs(parser,sentence_count):
